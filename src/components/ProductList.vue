@@ -12,7 +12,6 @@
 
 <script>
 
-import store from '@/store/index'
 export default {
 	data(){
 		return{
@@ -21,12 +20,12 @@ export default {
 	},
 	computed:{
 		products(){
-			return store.getters.availableProducts
+			return this.$store.getters.availableProducts
 		}
 	},
 	created(){
 		this.loading = true
-		store.dispatch('fetchProducts')
+		this.$store.dispatch('fetchProducts')
 		.then(()=>this.loading=false)
 	}
 }
